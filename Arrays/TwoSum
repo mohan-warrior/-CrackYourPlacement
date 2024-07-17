@@ -1,0 +1,27 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] ans =new int[2];
+        ans[0]=ans[1]=-1;
+        HashMap<Integer, Integer> map =new HashMap<>();
+        for(int i = 0;i<nums.length;i++){
+            int num = nums[i];
+            int moreneeded=target-num;
+            // System.out.println("moreneeded : "+moreneeded);
+            // System.out.println("i : "+i);
+            // System.out.println("containsKey : "+map.containsKey(moreneeded));
+            if(map.containsKey(moreneeded)){
+                // System.out.println("containsKey : "+map.containsKey(moreneeded));
+                // System.out.println("get : "+map.get(moreneeded));
+                // System.out.println("i : "+i);
+                ans[0]=map.get(moreneeded);
+                ans[1]=i;
+            }
+            map.put(nums[i],i);
+                               //we want the index as output that's why we are storing index as values 
+                               //and real values as keys 
+                               //map.containsKey(moreneeded) -- this condition checks the keys 
+                              //and returns index i.e. the values of map which we wanted and and another value is present index
+        }
+        return ans;
+    }
+}
