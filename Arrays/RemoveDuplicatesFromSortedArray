@@ -1,0 +1,13 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int k = 1;//because 1st element will always be unique that's why our i is also one,
+                  //if condition we are checking from 2nd element
+        for(int i =1;i<nums.length;i++){
+            if(nums[i]!=nums[i-1]){//we are choosing this condition because the array is sorted we need only 
+                nums[k]=nums[i];   //different elements -->if needed check first hint.
+                k++;
+            }
+        }
+        return k;
+    }
+}
